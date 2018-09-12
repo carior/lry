@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en" class="fixed">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>前端1.6</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap-4.0.0-dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.4.6.0.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if IE]>
+            
+        <style type="text/css">         
+            li.purchase a {
+                padding-top: 5px;
+                background-position: 0px -4px;
+            }
+            
+            li.remove_frame a {
+                padding-top: 5px;
+                background-position: 0px -3px;
+            }                       
+        </style>
+        
+    <![endif]-->
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="page-header" id="page-header">
+        </div>
+        <div class="page-body">
+            <div class="left-sidebar" id="left-sidebar">
+            </div>
+            <div class="content">
+                111
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="bootstrap/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+    loadHtml($("#page-header"), './nav.html')
+    loadHtml($("#left-sidebar"), './menu.html')
+    </script>
+</body>
+
+</html>

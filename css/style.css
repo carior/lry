@@ -1,0 +1,558 @@
+﻿/*这是头部和左侧菜单的响应式样式*/
+.wrap {
+    min-height: 100%;
+    width: 100%
+}
+
+.page-header {
+    height: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    border: 0
+}
+
+.page-body {
+    display: block;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 50px;
+}
+
+.content {
+    display: block;
+    position: relative;
+    vertical-align: top;
+    margin-left: 220px;
+}
+
+.content>.row+.row {
+    padding-top: 10px
+}
+
+.left-sidebar {
+    display: block;
+    height: 100%;
+    float: left;
+    position: relative;
+    width: 220px;
+    z-index: 1030
+}
+
+html.left-sidebar-collapsed .left-sidebar {
+    width: 60px
+}
+
+@media only screen and (min-width:768px) {
+    html.fixed .page-header {
+        position: fixed;
+        z-index: 1035
+    }
+    html.fixed .content-header {
+        position: fixed;
+        z-index: 1010;
+        top: 50px;
+        left: 220px;
+        right: 0;
+        margin: 0;
+        -webkit-transition-property: left;
+        -moz-transition-property: left;
+        transition-property: left;
+        -webkit-transition-duration: .25s;
+        -moz-transition-duration: .25s;
+        transition-duration: .25s;
+        -webkit-transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0
+    }
+    html.fixed .left-sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding-bottom: 50px;
+        top: 50px
+    }
+    html.fixed .left-sidebar .nano-content {
+        padding-bottom: 100px
+    }
+    html.fixed.left-sidebar-collapsed .content .content-header {
+        left: 60px
+    }
+}
+
+@media only screen and (min-width:768px) {
+    html.scroll .left-sidebar,
+    html.scroll-left-sidebar .left-sidebar {
+        position: absolute
+    }
+    html.scroll .left-sidebar .nano,
+    html.scroll-left-sidebar .left-sidebar .nano {
+        position: static;
+        overflow: visible
+    }
+    html.scroll .left-sidebar .nano .nano-content,
+    html.scroll-left-sidebar .left-sidebar .nano .nano-content {
+        position: static;
+        overflow: visible;
+        margin-right: 0!important;
+        outline: 0
+    }
+    html.scroll .left-sidebar .nano .nano-pane,
+    html.scroll-left-sidebar .left-sidebar .nano .nano-pane {
+        display: none!important
+    }
+    html.scroll .content,
+    html.scroll-content-header .content {
+        margin-top: 0
+    }
+    html.scroll .content-header,
+    html.scroll-content-header .content-header {
+        position: initial;
+        margin: -30px -30px 30px
+    }
+}
+
+@media only screen and (max-width:767px) {
+    html .page-body {
+        min-height: 0;
+
+        margin-top: 50px;
+        padding-top: 0
+    }
+    html .page-body .content {
+        margin-left: 0;
+        padding: 10px
+    }
+    html .page-body .content-header {
+        margin: -10px -10px 10px
+    }
+    html .page-body .left-sidebar {
+        bottom: 0;
+        margin-left: -100%;
+        min-height: 0;
+        min-width: 100%;
+        padding-bottom: 50px;
+        position: fixed;
+        overflow: hidden;
+        top: 50px;
+        -webkit-transition-property: margin;
+        -moz-transition-property: margin;
+        transition-property: margin;
+        -webkit-transition-duration: .25s;
+        -moz-transition-duration: .25s;
+        transition-duration: .25s;
+        -webkit-transition-timing-function: ease-out;
+        -moz-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+        -webkit-transition-delay: 0;
+        -moz-transition-delay: 0;
+        transition-delay: 0
+    }
+    html.left-sidebar-open .left-sidebar {
+        margin-left: 0
+    }
+}
+
+.page-header {
+    background: #004e90;
+    color: #fff
+}
+
+.page-header .leftside-header {
+    display: inline-block
+}
+
+.page-header .leftside-header .logo {
+    width: 150px;
+    height: 50px;
+    position: relative;
+    display: inline-block
+}
+
+.page-header .leftside-header .logo img {
+    width: 100%;
+    padding: 5px 4px;
+    margin-left: -4px
+}
+
+.page-header .leftside-header .toggle-left-sidebar {
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 15px;
+    text-align: center;
+    top: 10px;
+    font-size: 18px;
+    font-size: 1.38462rem;
+    cursor: pointer
+}
+
+
+/*这里开始nav.css*/
+
+
+/*这里开始nav.css*/
+
+@media only screen and (max-width:767px) {
+    .page-header {
+        background: 0 0;
+        height: auto;
+        position: static
+    }
+    .page-header .leftside-header {
+        position: fixed;
+        background: #003867;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 1035
+    }
+    .page-header .rightside-header {
+        background: #004e90;
+        float: none!important;
+        margin-top: 50px;
+        width: 100%;
+        text-align: right
+    }
+}
+
+.content {
+    -webkit-transition-property: margin-left;
+    -moz-transition-property: margin-left;
+    transition-property: margin-left;
+    -webkit-transition-duration: .25s;
+    -moz-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    transition-timing-function: ease-out
+}
+
+.content .content-header {
+    background: #006ac3;
+    color: #fff
+}
+
+.left-sidebar {
+    background: #202020;
+    color: #fff;
+    -webkit-transition-property: width;
+    -moz-transition-property: width;
+    transition-property: width;
+    -webkit-transition-duration: .25s;
+    -moz-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    -webkit-transition-delay: 0;
+    -moz-transition-delay: 0;
+    transition-delay: 0
+}
+
+.left-sidebar .nano {
+    background: #202020
+}
+
+.left-sidebar .left-sidebar-header {
+    position: relative;
+    height: 40px;
+    background: #151515
+}
+
+.left-sidebar .left-sidebar-header .left-sidebar-title {
+    padding: 10px;
+    font-size: 10px;
+    color: #006ac3;
+    font-weight: 700;
+    height: 40px;
+    margin-right: 60px;
+    -webkit-transition-property: margin;
+    -moz-transition-property: margin;
+    transition-property: margin;
+    -webkit-transition-duration: .25s;
+    -moz-transition-duration: .25s;
+    transition-duration: .25s;
+    -webkit-transition-timing-function: ease-out;
+    -moz-transition-timing-function: ease-out;
+    transition-timing-function: ease-out
+}
+
+.left-sidebar .left-sidebar-header .left-sidebar-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 40px;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer
+}
+
+.left-sidebar .left-sidebar-header .left-sidebar-toggle i {
+    font-size: 20px;
+    line-height: 40px
+}
+
+.left-sidebar .left-sidebar-header .left-sidebar-toggle i:hover {
+    color: #ccc
+}
+
+@media only screen and (max-width:768px) {
+    .left-sidebar .left-sidebar-header {
+        display: none
+    }
+}
+
+@media only screen and (min-width:768px) {
+    html.left-sidebar-collapsed .left-sidebar-title {
+        opacity: 0
+    }
+}
+
+ul#main-nav {
+    margin-right: 4px
+}
+
+ul#main-nav>li {
+    border-bottom: 1px solid #2a2a2a;
+    width: 100%;
+}
+
+ul#main-nav>li.active-item>a {
+    box-shadow: 2px -1px 0 #006ac3 inset!important;
+    border-bottom-left-radius: 5px;
+    background: #131313;
+    color: #fff!important
+}
+
+ul#main-nav>li.open-item>a {
+    box-shadow: 0 -1px 0 #006ac3 inset;
+    border-bottom-left-radius: 5px
+}
+
+ul#main-nav>li.open-item>a>i {
+    color: #006ac3
+}
+
+ul#main-nav li a {
+    padding: 12px 20px;
+    font-size: 13px;
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    width: 100%;
+    display: inline-block;
+}
+
+ul#main-nav li a:hover,
+ul#main-nav li a:focus {
+    background: #131313
+}
+
+ul#main-nav li a>i {
+    font-size: 18px;
+    margin-right: 10px;
+    text-align: center;
+    vertical-align: middle
+}
+
+ul#main-nav li span {
+    vertical-align: middle
+}
+
+ul#main-nav li.has-child-item {
+    position: relative
+}
+
+ul#main-nav li.has-child-item>a:after {
+    font-family: fontawesome;
+    font-size: 10px;
+    font-size: .76923rem;
+    content: '\f067';
+    color: #fff;
+    position: absolute;
+    padding: 14px;
+    right: 0;
+    top: 0
+}
+
+ul#main-nav li.has-child-item.open-item>ul.child-nav {
+    display: block
+}
+
+ul#main-nav li.has-child-item.open-item>a:after {
+    content: '\f068'
+}
+
+ul#main-nav ul.child-nav {
+    border-radius: 5px;
+    display: none
+}
+
+ul#main-nav ul.child-nav.level-1 {
+    background: #161616;
+    box-shadow: 0 -5px 5px -3px rgba(0, 0, 0, .6) inset
+}
+
+ul#main-nav ul.child-nav.level-1 li a {
+    padding: 10px 50px
+}
+
+ul#main-nav ul.child-nav.level-1 li a:hover,
+ul#main-nav ul.child-nav.level-1 li a:focus {
+    background: #0c0c0c
+}
+
+ul#main-nav ul.child-nav.level-2 {
+    background: #0e0e0e;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, .4) inset
+}
+
+ul#main-nav ul.child-nav.level-2 li a {
+    padding: 8px 70px
+}
+
+ul#main-nav ul.child-nav.level-3 {
+    background: #070707;
+    box-shadow: 0 0 0 5px #000 inset
+}
+
+ul#main-nav ul.child-nav.level-3 li a {
+    padding: 6px 90px
+}
+
+@media only screen and (min-width:768px) {
+    html.left-sidebar-collapsed .left-sidebar #main-nav>li.open-item>a {
+        box-shadow: none
+    }
+    html.left-sidebar-collapsed .left-sidebar #main-nav>li>a {
+        overflow: hidden;
+        text-overflow: clip
+    }
+    html.left-sidebar-collapsed .left-sidebar #main-nav>li>a span {
+        visibility: hidden
+    }
+    html.left-sidebar-collapsed .left-sidebar #main-nav li.has-child-item a:after {
+        display: none
+    }
+    html.left-sidebar-collapsed .left-sidebar #main-nav li.has-child-item ul.child-nav {
+        display: none
+    }
+    html.left-sidebar-collapsed .left-sidebar .nano:hover {
+        width: 220px;
+        min-height: 100vh;
+        background: rgba(32, 32, 32, .1)
+    }
+    html.left-sidebar-collapsed .left-sidebar .nano:hover .nano-content {
+        background: rgba(32, 32, 32, .9)
+    }
+    html.left-sidebar-collapsed .left-sidebar .nano:hover #main-nav>li.open-item>a {
+        box-shadow: 0 -1px 0 #004e90 inset
+    }
+    html.left-sidebar-collapsed .left-sidebar .nano:hover #main-nav>li>a {
+        overflow: visible;
+        text-overflow: initial
+    }
+    html.left-sidebar-collapsed .left-sidebar .nano:hover #main-nav>li>a span {
+        visibility: visible
+    }
+    html.left-sidebar-collapsed .left-sidebar .nano:hover #main-nav li.has-child-item a:after {
+        display: block
+    }
+    html.left-sidebar-collapsed .left-sidebar .nano:hover #main-nav li.has-child-item.open-item>ul.child-nav {
+        display: block
+    }
+}
+
+ul#main-nav ul.child-nav li a:before {
+    position: absolute;
+    content: "";
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid #2f2f2f
+}
+
+ul#main-nav ul.child-nav li:hover>a:before {
+    border-color: #006ac3
+}
+
+ul#main-nav ul.child-nav li.active-item>a:before {
+    border-color: #004e90!important
+}
+
+ul#main-nav ul.child-nav li.open-item:before {
+    position: absolute;
+    content: "";
+    left: 28px;
+    top: 42px;
+    bottom: 0;
+    border-top: 1px solid #006ac3;
+    width: 23px
+}
+
+ul#main-nav ul.child-nav li.open-item>a:before {
+    border-color: #006ac3
+}
+
+ul#main-nav ul.child-nav li.has-child-item>a:after {
+    padding: 10px
+}
+
+ul#main-nav ul.child-nav li .level-2 li.open-item:before {
+    left: 50px;
+    top: 38px;
+    width: 21px
+}
+
+ul#main-nav ul.child-nav li .level-2 li a:before {
+    left: 50px
+}
+
+ul#main-nav ul.child-nav li .level-2 li.has-child-item>a:after {
+    padding: 8px
+}
+
+ul#main-nav ul.child-nav li .level-3 li a:before {
+    left: 70px
+}
+
+.nano {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden
+}
+
+.nano>.nano-content {
+    position: absolute;
+    overflow: scroll;
+    overflow-x: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.nano>.nano-content:focus {
+    outline: thin dotted
+}
+
+.nano>.nano-content::-webkit-scrollbar {
+    display: none
+}
+
+.nano.has-scrollbar>.nano-content::-webkit-scrollbar {
+    display: block
+}
+/*这是头部和左侧菜单的响应式样式*/

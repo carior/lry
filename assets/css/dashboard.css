@@ -6066,6 +6066,16 @@ button.bg-info:focus {
   background-color: #1594ef !important;
 }
 
+.bg-light-blue{
+  background-color: #EAF3F8 !important;
+}
+
+a.bg-light-blue:hover, a.light-blu:focus,
+button.light-blu:hover,
+button.light-blu:focus {
+  background-color: #EAF3F8 !important;
+}
+
 .bg-warning {
   background-color: #f1c40f !important;
 }

@@ -1,0 +1,29 @@
+.label-name{
+  line-height: 1.2rem;
+  font-size: 0.8rem;
+}
+.form-control-inline{
+    padding: 0.2rem;
+    font-size: 0.9375rem;
+    color: #495057;
+    width: 100%;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 40, 100, 0.12);
+    border-radius: 3px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (max-width: 300px) {
+    body {
+        background-color:lightblue;
+    }
+}
+.special-select .selectize-input{
+  padding: 0.2rem
+}
+.special-select.single .selectize-input:after{
+  top: 7px;
+}
+/* .special-select{
+  padding: 0.2rem;
+} */

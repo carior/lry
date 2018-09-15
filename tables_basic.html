@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en" class="fixed">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>前端1.6</title>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.4.6.0.css">
+    <link rel="stylesheet" href="css/navmenu.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <!-- <link rel="stylesheet" href="bootstrap/bootstrap-4.0.0-dist/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+    <link rel="stylesheet" href="css/control.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="page-header bg-primary" id="page-header">
+        </div>
+        <div class="page-body">
+            <div class="left-sidebar" id="left-sidebar">
+            </div>
+            <div class="content pt-3 px-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <div class="card serachbar">
+                                <div class="card-header bg-light-blue text-secondary d-flex justify-content-between">
+                                    查询条件
+                                    <div class="">
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-search"></i>查询</span>
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-arrow-down-circle"></i>导出</span>
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-refresh-ccw"></i>重置</span>
+                                    </div>
+                                </div>
+                                <div class="row py-3 px-5 no-gutters">
+                                    <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+                                        <div class="row no-gutters pr-6">
+                                            <div class="col-md-4 col-xl-3"><span class="mr-1 label-name">名称</span></div>
+                                            <div class="col-md-8 col-xl-9">
+                                                <input type="text" class="form-control-inline">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+                                        <div class="row no-gutters pr-6">
+                                            <div class="col-md-4 col-xl-3"><span class="mr-1 label-name">供应商名称</span></div>
+                                            <div class="col-md-8 col-xl-9">
+                                                <input type="text" class="form-control-inline">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+                                        <div class="row no-gutters pr-6">
+                                            <div class="col-md-4 col-xl-3"><span class="mr-1 label-name">特殊下拉</span></div>
+                                            <div class="col-md-8 col-xl-9">
+                                                <select name="beast" id="select-beast" class="special-select custom-select selectized" tabindex="-1">
+                                                <option value="1" selected="selected">Chuck Testa</option>
+                                                <option value="">Select a person...</option>
+                                                <option value="4">Thomas Edison</option>
+                                                <option value="1">Nikola</option>
+                                                <option value="3">Nikola Tesla</option>
+                                                <option value="5">Arnold Schwarzenegger</option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+                                        <div class="row no-gutters pr-6">
+                                            <div class="col-md-4 col-xl-3"><span class="mr-1 label-name">普通下拉</span></div>
+                                            <div class="col-md-8 col-xl-9">
+                                                <select class="form-control-inline" tabindex="-1">
+                                                    <option value="1" selected="selected">Chuck Testa</option>
+                                                    <option value="">Select a person...</option>
+                                                    <option value="4">Thomas Edison</option>
+                                                    <option value="1">Nikola</option>
+                                                    <option value="3">Nikola Tesla</option>
+                                                    <option value="5">Arnold Schwarzenegger</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+                                        <div class="row no-gutters pr-6">
+                                            <div class="col-md-4 col-xl-3"><span class="mr-1 label-name">开始时间</span></div>
+                                            <div class="col-md-8 col-xl-9">
+                                                <input type="text" class="form-control-inline">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-4 col-md-6 mb-2">
+                                        <div class="row no-gutters pr-6">
+                                            <div class="col-md-4 col-xl-3"><span class="mr-1 label-name">结束时间</span></div>
+                                            <div class="col-md-8 col-xl-9">
+                                                <input type="text" class="form-control-inline">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card databar">
+                                <div class="card-header bg-light-blue text-secondary d-flex justify-content-between">
+                                    数据列表
+                                    <div class="">
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-plus-circle"></i>新增</span>
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-edit-3"></i>修改</span>
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-file"></i>查看</span>
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-download-cloud"></i>下载</span>
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-upload-cloud"></i>上传</span>
+                                        <span class="btn btn-secondary btn-sm"><i class="fe fe-trash-2"></i>删除</span>
+                                    </div>
+                                </div>
+                                <table id="table" class="table" data-toggle="table" data-mobile-responsive="true" data-pagination="true" data-height="500">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/vendors/jquery-3.2.1.min.js"></script>
+    <script src="bootstrap/bootstrap-4.0.0-dist/others/popper-1.12.9.min.js"></script>
+    <script src="bootstrap/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <!-- <script src="js/bootstrap-table-toolbar.min.js"></script> -->
+    <script src="js/colResizable-1.5.min.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+    <script src="assets/js/vendors/selectize.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+    loadHtml($("#page-header"), './nav.html')
+    loadHtml($("#left-sidebar"), './menu.html')
+    </script>
+    <script>
+    //bootstrap-table
+    $('#table').bootstrapTable('destroy').bootstrapTable({
+        url: "data/data3.json", // 获取表格数据的url
+        cache: false, // 设置为 false 禁用 AJAX 数据缓存， 默认为true
+        striped: true, //表格显示条纹，默认为false
+        pagination: true, // 在表格底部显示分页组件，默认false
+        pageList: [10, 20], // 设置页面可以显示的数据条数
+        pageSize: 10, // 页面数据条数
+        pageNumber: 1, // 首页页码
+        //sidePagination: 'server', // 设置为服务器端分页
+        queryParams: function(params) { // 请求服务器数据时发送的参数，可以在这里添加额外的查询参数，返回false则终止请求
+
+            return {
+                pageSize: params.limit, // 每页要显示的数据条数
+                offset: params.offset, // 每页显示数据的开始行号
+                sort: params.sort, // 要排序的字段
+                sortOrder: params.order, // 排序规则
+                dataId: $("#dataId").val() // 额外添加的参数
+            }
+        },
+        sortName: 'id', // 要排序的字段
+        sortOrder: 'asc', // 排序规则
+        columns: [{ //定义表头  决定列数，  
+            checkbox: true, //全选框  
+            align: 'center' //对齐方式  
+        }, {
+            field: 'id', //该列的字段  
+            title: '编号', //表头显示的值  
+            sortable: true //是否支持排序  
+        }, {
+            field: 'name',
+            title: '名字'
+        }, {
+            field: 'price',
+            title: '价格',
+            sortable: true
+        },{
+            field: 'status',
+            title: '状态',
+            formatter: 'statusFormatter'
+        }, {
+            field: 'operate',
+            title: '操作',
+            width: '10%',
+            formatter: 'operatFormatter'
+        }],
+        onLoadSuccess: function() { //加载成功时执行
+            console.info("加载成功");
+        },
+        onLoadError: function() { //加载失败时执行
+            console.info("加载数据失败");
+        }
+    });
+
+    // 格式化状态
+    function operatFormatter(value, row, index) {
+        console.log(value, row, index);
+        return '<span class=""><i class="fe fe-edit" data-toggle="tooltip" title="" data-original-title="fe fe-edit"></i></span><span class=""><i class="fe fe-trash" data-toggle="tooltip" title="" data-original-title="fe fe-trash"></i></span><span class=""><i class="fe fe-settings" data-toggle="tooltip" title="" data-original-title="fe fe-settings"></i></span>';
+    }
+    function statusFormatter(value, row, index) {
+        console.log(value, row, index);
+        // 成功，取消，确认，正常
+        var stateHtml ='';
+        stateHtml += '<span class="btn btn-sm bg-lime text-light mr-1"><i class="fe fe-check"></i>成功</span>';
+        stateHtml += '<span class="btn btn-sm bg-gray text-light mr-1"><i class="fe fe-check"></i>失败</span>';
+        return stateHtml;
+    }
+    </script>
+    <script>
+    $(function() {
+        $("table").colResizable();
+    });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#input-tags').selectize({
+                delimiter: ',',
+                persist: false,
+                create: function(input) {
+                    return {
+                        value: input,
+                        text: input
+                    }
+                }
+            });
+    
+           $('#select-beast').selectize({
+                create: true,
+                sortField: {
+                    field: 'text',
+                    direction: 'asc'
+                },
+                dropdownParent: 'body'
+           });
+        });
+    </script>
+</body>
+
+</html>

@@ -8,15 +8,12 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.4.6.0.css">
     <link rel="stylesheet" href="css/navmenu.css">
     <link rel="stylesheet" href="assets/css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css" >
-    <!-- <link rel="stylesheet" href="bootstrap/bootstrap-4.0.0-dist/css/bootstrap.css"> -->
-    <link rel="stylesheet" href="css/bootstrap-table.css">
     <link rel="stylesheet" href="css/control.css">
 </head>
 
 <body>
     <div class="wrap">
-        <div class="page-header bg-primary" id="page-header">
+        <div class="page-header" id="page-header">
         </div>
         <div class="page-body">
             <div class="left-sidebar" id="left-sidebar">
@@ -111,8 +108,9 @@
                                         <span class="btn btn-secondary btn-sm"><i class="fe fe-trash-2"></i>删除</span>
                                     </div>
                                 </div>
-                                <table id="table" class="table" data-toggle="table" data-mobile-responsive="true" data-pagination="true" data-height="500">
-                                </table>
+                                <input type="button" id="btn-expand-all" value="展开所有" class="btn btn-sm" />
+                                <input type="button" id="btn-collapse-all" value="折叠所有" class="btn btn-sm" />
+                                <div id="treeview-expandible" class=""></div>
                             </div>
                         </div>
                     </div>
@@ -120,123 +118,19 @@
             </div>
         </div>
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="dialog-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="assets/js/vendors/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/bootstrap-4.0.0-dist/others/popper-1.12.9.min.js"></script>
     <script src="bootstrap/bootstrap-4.0.0-dist/js/bootstrap.js"></script>
-    <script src="js/bootstrap-table.js"></script>
-    <!-- <script src="js/bootstrap-table-toolbar.min.js"></script> -->
-    <script src="js/colResizable-1.5.min.js"></script>
-    <script src="js/bootstrap-table-zh-CN.js"></script>
     <script src="assets/js/vendors/selectize.min.js"></script>
     <script src="js/bootstrap-datetimepicker.js"></script>
     <script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <!-- treegrid -->
+    <script src="js/bootstrap-treeview.js"></script>
+    <!-- treegrid end-->
     <script src="js/script.js"></script>
     <script>
     loadHtml($("#page-header"), './nav.html')
     loadHtml($("#left-sidebar"), './menu.html')
-    </script>
-    <script>
-    //bootstrap-table
-    $('#table').bootstrapTable('destroy').bootstrapTable({
-        url: "data/data3.json", // 获取表格数据的url
-        cache: false, // 设置为 false 禁用 AJAX 数据缓存， 默认为true
-        striped: true, //表格显示条纹，默认为false
-        pagination: true, // 在表格底部显示分页组件，默认false
-        pageList: [10, 20], // 设置页面可以显示的数据条数
-        pageSize: 10, // 页面数据条数
-        pageNumber: 1, // 首页页码
-        //sidePagination: 'server', // 设置为服务器端分页
-        queryParams: function(params) { // 请求服务器数据时发送的参数，可以在这里添加额外的查询参数，返回false则终止请求
-
-            return {
-                pageSize: params.limit, // 每页要显示的数据条数
-                offset: params.offset, // 每页显示数据的开始行号
-                sort: params.sort, // 要排序的字段
-                sortOrder: params.order, // 排序规则
-                dataId: $("#dataId").val() // 额外添加的参数
-            }
-        },
-        sortName: 'id', // 要排序的字段
-        sortOrder: 'asc', // 排序规则
-        columns: [{ //定义表头  决定列数，  
-            checkbox: true, //全选框  
-            align: 'center' //对齐方式  
-        }, {
-            field: 'id', //该列的字段  
-            title: '编号', //表头显示的值  
-            sortable: true //是否支持排序  
-        }, {
-            field: 'name',
-            title: '名字'
-        }, {
-            field: 'price',
-            title: '价格',
-            sortable: true
-        }, {
-            field: 'status',
-            title: '状态',
-            formatter: 'statusFormatter'
-        }, {
-            field: 'operate',
-            title: '操作',
-            width: '10%',
-            formatter: 'operatFormatter'
-        }],
-        onLoadSuccess: function() { //加载成功时执行
-            console.info("加载成功");
-        },
-        onLoadError: function() { //加载失败时执行
-            console.info("加载数据失败");
-        }
-    });
-
-    // 格式化状态
-    function operatFormatter(value, row, index) {
-        console.log(value, row, index);
-        return '<span class=""><i class="fe fe-edit" data-toggle="tooltip" title="" data-original-title="fe fe-edit"></i></span><span class=""><i class="fe fe-trash" data-toggle="tooltip" title="" data-original-title="fe fe-trash"></i></span><span class=""><i class="fe fe-settings" data-toggle="tooltip" title="" data-original-title="fe fe-settings"></i></span>';
-    }
-
-    function statusFormatter(value, row, index) {
-        console.log(value, row, index);
-        // 成功，取消，确认，正常
-        var stateHtml = '';
-        stateHtml += '<span class="btn btn-sm bg-lime text-light mr-1"><i class="fe fe-check"></i>成功</span>';
-        stateHtml += '<span class="btn btn-sm bg-gray text-light mr-1"><i class="fe fe-check"></i>失败</span>';
-        return stateHtml;
-    }
-    </script>
-    <script>
-    $(function() {
-        $("table").colResizable();
-    });
     </script>
     <script>
     $(document).ready(function() {
@@ -272,6 +166,79 @@
             autoclose: true,//选中自动关闭
             todayBtn: true//显示今日按钮
         });
+    </script>
+    <script>
+    $(function() {
+        var defaultData = [
+          {
+            text: 'Parent 1',
+            href: '#parent1',
+            tags: ['4'],
+            nodes: [
+              {
+                text: 'Child 1',
+                href: '#child1',
+                tags: ['2'],
+                nodes: [
+                  {
+                    text: 'Grandchild 1',
+                    href: '#grandchild1',
+                    tags: ['0']
+                  },
+                  {
+                    text: 'Grandchild 2',
+                    href: '#grandchild2',
+                    tags: ['0']
+                  }
+                ]
+              },
+              {
+                text: 'Child 2',
+                href: '#child2',
+                tags: ['0']
+              }
+            ]
+          },
+          {
+            text: 'Parent 2',
+            href: '#parent2',
+            tags: ['0']
+          },
+          {
+            text: 'Parent 3',
+            href: '#parent3',
+             tags: ['0']
+          },
+          {
+            text: 'Parent 4',
+            href: '#parent4',
+            tags: ['0']
+          },
+          {
+            text: 'Parent 5',
+            href: '#parent5'  ,
+            tags: ['0']
+          }
+        ];
+        var $expandibleTree = $('#treeview-expandible').treeview({
+            data: defaultData,
+            onNodeCollapsed: function(event, node) {
+                $('#expandible-output').prepend('<p>' + node.text + ' was collapsed</p>');
+            },
+            onNodeExpanded: function(event, node) {
+                $('#expandible-output').prepend('<p>' + node.text + ' was expanded</p>');
+            }
+        });
+        // Expand/collapse all
+        $('#btn-expand-all').on('click', function(e) {
+            var levels = $('#select-expand-all-levels').val();
+            $expandibleTree.treeview('expandAll', { levels: levels, silent: $('#chk-expand-silent').is(':checked') });
+        });
+
+        $('#btn-collapse-all').on('click', function(e) {
+            $expandibleTree.treeview('collapseAll', { silent: $('#chk-expand-silent').is(':checked') });
+        });
+    });
     </script>
 </body>
 
